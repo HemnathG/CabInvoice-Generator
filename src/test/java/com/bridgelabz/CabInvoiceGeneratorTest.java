@@ -42,4 +42,15 @@ public class CabInvoiceGeneratorTest {
 		Assert.assertEquals(2, noOfRides);
 		Assert.assertEquals(27, averageFare, averageFare);
 	}
+
+	@Test
+	public void givenUserIdReturnTheInvoice() {
+		String userID = "Driver1";
+		Rides[] rides = new Rides[] { new Rides(5, 4)};
+		CabInvoiceGenerator cabInvoiceGenerator = new CabInvoiceGenerator();
+		cabInvoiceGenerator.addRides(userID, rides);
+		double rideDetails = cabInvoiceGenerator.getRidesDetails(userID);
+		int noOfRides = cabInvoiceGenerator.numberOfRides(rides);
+		Assert.assertEquals(1, noOfRides);
+	}
 }
